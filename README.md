@@ -1,6 +1,4 @@
-Viewed 04-unit-vibe-coding.html:1-325
-
-針對 **`04-unit-vibe-coding` (主流 Vibe Coding 工具旗艦店)** 單元，這個單元是工具能力的綜藝大賞，重點在於學員是否能根據需求選擇最適合的「AI 代理人 (Agent)」。
+針對 **`02-unit-vibe-coding` (主流 Vibe Coding 工具旗艦店)** 單元，這個單元是工具能力的綜藝大賞，重點在於學員是否能根據需求選擇最適合的「AI 代理人 (Agent)」。
 
 以下是針對 **v0, Lovable, Replit 與 Claude Code** 在 GitHub Classroom 部署其作業 (Assignments) 的具體建議：
 
