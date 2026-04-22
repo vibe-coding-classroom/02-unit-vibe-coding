@@ -1,0 +1,56 @@
+name: Autograding
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Verify Replit Deployment
+        run: |
+          # Extract the URL from the Replit row in links.md
+          # The table format is: | Platform | Description | URL |
+          URL=$(grep "| **Replit** |" links.md | awk -F'|' '{print $4}' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+          
+          echo "Extracted URL: '$URL'"
+          
+          if [[ "$URL" == "[Link]" || -z "$URL" || ! "$URL" =~ ^https?:// ]]; then
+            echo "::error file=links.md::Replit URL is missing, invalid, or still set to [Link]. Please provide a valid URL starting with http:// or https://"
+            exit 1
+          fi
+          
+          echo "Pinging Replit deployment at $URL..."
+          
+          # Try to ping the URL with curl
+          STATUS=$(curl -o /dev/null -s -L -w "%{http_code}" "$URL")
+          
+          if [ "$STATUS" -eq 200 ]; then
+            echo "✅ Success: Replit deployment is reachable (HTTP 200)."
+          else
+            echo "::error::Failed to reach Replit deployment. Status code: $STATUS. Please ensure your project is 'Published' and accessible."
+            exit 1
+          fi
+
+      - name: Verify Lovable Deployment
+        run: |
+          URL=$(grep "| **Lovable** |" links.md | awk -F'|' '{print $4}' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+          
+          echo "Extracted URL: '$URL'"
+          
+          if [[ "$URL" == "[Link]" || -z "$URL" || ! "$URL" =~ ^https?:// ]]; then
+            echo "::warning file=links.md::Lovable URL is missing or invalid. While not strictly required for the 'Ping' test, it is highly recommended."
+          else
+            STATUS=$(curl -o /dev/null -s -L -w "%{http_code}" "$URL")
+            if [ "$STATUS" -eq 200 ]; then
+              echo "✅ Success: Lovable deployment is reachable (HTTP 200)."
+            else
+              echo "::warning::Lovable deployment returned status $STATUS. Check if it is published correctly."
+            fi
+          fi
