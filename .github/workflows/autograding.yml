@@ -17,7 +17,7 @@ jobs:
         run: |
           # Extract the URL from the Google Antigravity row in links.md
           # The table format is: | Platform | Description | URL |
-          URL=$(grep "| **Google Antigravity** |" links.md | awk -F'|' '{print $4}' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+          URL=$(grep -F "| **Google Antigravity** |" links.md | awk -F'|' '{print $4}' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
           
           echo "Extracted URL: '$URL'"
           
@@ -40,7 +40,7 @@ jobs:
 
       - name: Verify Lovable Deployment
         run: |
-          URL=$(grep "| **Lovable** |" links.md | awk -F'|' '{print $4}' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+          URL=$(grep -F "| **Lovable** |" links.md | awk -F'|' '{print $4}' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
           
           echo "Extracted URL: '$URL'"
           
