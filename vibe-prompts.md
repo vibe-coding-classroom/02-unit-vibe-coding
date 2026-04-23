@@ -13,12 +13,12 @@ Record the "Soul Prompts" (Vibe Prompts) you used and the evolution of your proj
 
 ---
 
-## Task 2: Fullstack Deployment (Replit Agent)
+## Task 2: Fullstack Deployment (Google Antigravity)
 ### Core Prompt
 > [Your core prompt for the fullstack app]
 
 ### Observations
-[Notes on how Replit handled the database and backend setup]
+[Notes on how Google Antigravity handled the database and backend setup]
 
 ---
 

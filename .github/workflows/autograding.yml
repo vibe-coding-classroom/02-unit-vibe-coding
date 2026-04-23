@@ -13,28 +13,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Verify Replit Deployment
+      - name: Verify Google Antigravity Deployment
         run: |
-          # Extract the URL from the Replit row in links.md
+          # Extract the URL from the Google Antigravity row in links.md
           # The table format is: | Platform | Description | URL |
-          URL=$(grep "| **Replit** |" links.md | awk -F'|' '{print $4}' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+          URL=$(grep "| **Google Antigravity** |" links.md | awk -F'|' '{print $4}' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
           
           echo "Extracted URL: '$URL'"
           
           if [[ "$URL" == "[Link]" || -z "$URL" || ! "$URL" =~ ^https?:// ]]; then
-            echo "::error file=links.md::Replit URL is missing, invalid, or still set to [Link]. Please provide a valid URL starting with http:// or https://"
+            echo "::error file=links.md::Google Antigravity URL is missing, invalid, or still set to [Link]. Please provide a valid URL starting with http:// or https://"
             exit 1
           fi
           
-          echo "Pinging Replit deployment at $URL..."
+          echo "Pinging Google Antigravity deployment at $URL..."
           
           # Try to ping the URL with curl
           STATUS=$(curl -o /dev/null -s -L -w "%{http_code}" "$URL")
           
           if [ "$STATUS" -eq 200 ]; then
-            echo "✅ Success: Replit deployment is reachable (HTTP 200)."
+            echo "✅ Success: Google Antigravity deployment is reachable (HTTP 200)."
           else
-            echo "::error::Failed to reach Replit deployment. Status code: $STATUS. Please ensure your project is 'Published' and accessible."
+            echo "::error::Failed to reach Google Antigravity deployment. Status code: $STATUS. Please ensure your project is 'Published' and accessible."
             exit 1
           fi
 
