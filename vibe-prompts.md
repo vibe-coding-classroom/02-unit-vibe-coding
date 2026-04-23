@@ -15,10 +15,10 @@ Record the "Soul Prompts" (Vibe Prompts) you used and the evolution of your proj
 
 ## Task 2: Fullstack Deployment (Google Antigravity)
 ### Core Prompt
-> [Your core prompt for the fullstack app]
+> "Build a premium, high-performance Fullstack Todo List app with a Cyberpunk-inspired dark mode, glassmorphism effects, and persistent data storage using LocalStorage. Ensure the UI feels fluid and high-end."
 
 ### Observations
-[Notes on how Google Antigravity handled the database and backend setup]
+Antigravity automatically handled the design system, creating a custom color palette and glassmorphism tokens. It implemented LocalStorage persistence seamlessly without requiring manual database configuration for this stage.
 
 ---
 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity | Premium Todo Hub</title>
+    <meta name="description" content="A high-performance, aesthetically pleasing fullstack-ready todo application built with Google Antigravity.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="app-container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">▲</span>
+                <h1>Antigravity<span>Todo</span></h1>
+            </div>
+            <p class="subtitle">Elevating your daily productivity with AI precision.</p>
+        </header>
+
+        <section class="todo-card">
+            <div class="input-group">
+                <input type="text" id="todo-input" placeholder="What's your next milestone?" autocomplete="off">
+                <button id="add-btn" aria-label="Add Todo">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="active">Active</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+
+            <ul id="todo-list" class="todo-list">
+                <!-- Todos will be injected here -->
+            </ul>
+
+            <footer class="card-footer">
+                <span id="items-left">0 items left</span>
+                <button id="clear-completed">Clear Completed</button>
+            </footer>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Built with <span class="highlight">Antigravity</span> for Vibe Coding Unit 02</p>
+        </footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
